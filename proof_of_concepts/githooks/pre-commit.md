@@ -23,10 +23,10 @@ execute_if_modified() {
 ```
 
 - .githooks directory needs to be configured outside the repo so pulled updates are not automatically accepted
-- rightflick extracts configuration from CI files via `npx rightflick`
+- Rightflick extracts configuration from CI files via `rightflick update`
 - terminal seems to remember if sudo is accepted so need to wrap it in a temporary shell
 - version control includes .rightflick-lock which offloads "are hooks up-to-date" computation to CI, basically just store a sha for the rendered hooks under .rightflick also in version control
-- different devs may have different version of rightflick. All devs should have the same pre-commit hooks and not deviating ones depending on whatever they have locally. Do not even include hook rendering in local utility? `npx rightflick` so it's easy to call in CI too, no need for an action. Lock rightflick version with .rightflick-version file
+- different devs may have different version of Rightflick. All devs should have the same pre-commit hooks and not deviating ones depending on whatever they have locally. Do not even include hook rendering in local utility? `npx rightflick` so it's easy to call in CI too, no need for an action. Lock Rightflick version with .rightflick-version file
 - unsure of the above. PoC for pre-commit hook config file next
 
 ```sh

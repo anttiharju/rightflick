@@ -1,0 +1,13 @@
+name: Rightflick
+on: [pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: shellcheck
+        run: find . -iname "*.sh" -exec shellcheck {} +
+      - name: prettier markdown
+        if: always()
+        run: find . -iname "*.md" -exec npx prettier@$(cat .prettier-version) --check {} +

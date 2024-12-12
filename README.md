@@ -1,4 +1,4 @@
-# rightflick
+# Rightflick
 
 Experimental approach to Git hooks
 
@@ -11,6 +11,7 @@ Experimental approach to Git hooks
   - Simple so it's easy to audit
   - Updates to hooks are **not** accepted automatically; a locking mechanism
 - Shifts CI from a feedback source to an enforcer
+- rightflick is not responsible for committing autofixes; a developer should configure their editor in a way that upon saves autofixes are applied
 - Operates at two levels
   1. pre-commit
      - performance

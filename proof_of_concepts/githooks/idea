@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Get the list of files that would be committed
+files_to_commit=$(git diff --cached --name-only) # need to handle spaces in filenames, just quick poc for now
+
+# Initialize arrays
+md_files=()
+sh_files=()
+
+# Populate arrays based on file extensions
+for file in $files_to_commit; do
+    case "$file" in
+        *.md) md_files+=("$file") ;;
+        *.sh) sh_files+=("$file") ;;
+    esac
+done
+
+# Print arrays for debugging purposes
+echo "Markdown files to be committed: ${md_files[*]}" # actually loop over and apply npx prettier
+echo "Shell script files to be committed: ${sh_files[*]}" # actually loop over and apply shellcheck
+
+# o(2*n), n = changed files
